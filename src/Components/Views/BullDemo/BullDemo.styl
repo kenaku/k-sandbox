@@ -1,30 +1,14 @@
-.wrap
-  width: 100%
-  height: 100vh
-  display: flex
-  background: #333
-  background: url('./assets/bg.jpg')
-  justify-content: center
-  align-items: center
-  overflow: hidden
-.container
-  width: 1200px
-  display: flex
-  justify-content: center
-  align-items: center
-  overflow: visible
-
 .bull
-  width: 500px
+  position: absolute
+  right:0
   cursor: pointer
+  width: 1000px
+  right: -240px
+  svg
+    width: 740px
   svg:not(:root)
     overflow: visible
   polygon
     transition: fill .2s ease-in-out
     &:hover
       fill: #F05CFA
-
-.button
-  background: transparent
-  color white
-  border: 1px solid #420050
