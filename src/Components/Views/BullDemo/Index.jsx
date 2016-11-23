@@ -20,10 +20,6 @@ export default React.createClass({
     TweenMax.from(animationSelector, 1, {y: -100, opacity: 0, ease: Power1.easeOut, delay:4, clearProps:'all'});
   },
 
-  handleAnimationSelect(animationType) {
-
-  },
-
   render() {
     const {animationType} = this.state
     return (
