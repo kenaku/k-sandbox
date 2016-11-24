@@ -42,3 +42,12 @@
 	font-weight: 300;
 	font-style: normal;
 }
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}

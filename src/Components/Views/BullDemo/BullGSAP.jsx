@@ -55,7 +55,7 @@ export default React.createClass({
   },
 
   handleAnimation() {
-    const tmax_opts = {delay: 1.8}
+    const tmax_opts = {delay: 1}
     const { animationType } = this.props
     const stagger  = 0.002
     const duration = .2

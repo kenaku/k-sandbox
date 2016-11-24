@@ -60,3 +60,11 @@
       translateY(var(--ty, 0))
       rotateX(var(--rx, 0))
       rotateY(var(--ry, 0))
+
+.appear
+  transform: translate3d(0, -100px, 0)
+  opacity: 0
+  &Active
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+    transition: all .7s 2s ease-in-out
