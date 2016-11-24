@@ -1,5 +1,5 @@
 import React from 'react'
-import {TweenMax, Power1, Power3} from 'gsap'
+import {TweenMax, Power0, Power3} from 'gsap'
 import _ from 'lodash'
 import css from './Index.styl'
 import Bull from './BullGSAP'
@@ -9,15 +9,15 @@ export default React.createClass({
 
   getInitialState() {
     return {
-      animationType: 'flyIn',
+      animationType: 'scale',
     }
   },
 
   componentDidMount() {
     const {header, text, animationSelector} = this.refs
     TweenMax.from(header, 1, {opacity: 0, y: -100, ease: Power3.easeOut, delay:3});
-    TweenMax.from(text, 3, {opacity: 0, ease: Power1.easeOut, delay:.5});
-    TweenMax.from(animationSelector, 1, {y: -100, opacity: 0, ease: Power1.easeOut, delay:4, clearProps:'all'});
+    TweenMax.from(text, 1.5, {opacity: 0, ease: Power0.easeOut});
+    TweenMax.from(animationSelector, 1, {y: -100, opacity: 0, ease: Power0.easeOut, delay:4, clearProps:'all'});
   },
 
   render() {

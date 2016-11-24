@@ -2,18 +2,14 @@ import React from 'react'
 import _ from 'lodash'
 import {TimelineMax, Power4} from 'gsap'
 import css from './BullDemo.styl'
-import bullData from './assets/bull'
-
-const tmax_opts2 = {
-  repeat: 1,
-  yoyo: true
-}
+import InlineSVG from 'svg-inline-react'
 
 const animationTypes = {
   scale: {
     scale: 0,
     opacity: 0,
     ease: Power4.easeOut,
+    transformOrigin: 'center center',
   },
   flyIn: {
     scale: 0,
@@ -40,6 +36,12 @@ const animateTo = {
 
 export default React.createClass({
 
+  getInitialState() {
+    return {
+      polygons: []
+    }
+  },
+
   propTypes: {
     animationType: React.PropTypes.string.isRequired
   },
@@ -53,11 +55,11 @@ export default React.createClass({
   },
 
   handleAnimation() {
-    const tmax_opts = {delay: 1}
+    const tmax_opts = {delay: 1.4}
     const { animationType } = this.props
-    const stagger  = 0.004
-    const duration = .4
-    const polygons = _.values(this.refs)
+    const stagger  = 0.002
+    const duration = .2
+    const polygons = document.querySelectorAll("#bull polygon")
     const timeline = new TimelineMax(tmax_opts)
     timeline.staggerFrom(
       polygons,
@@ -69,10 +71,14 @@ export default React.createClass({
   },
 
   handleClick() {
-    const stagger  = 0.0045
-    const polygons = _.values(this.refs)
+    const tmax_opts2 = {
+      repeat: 1,
+      yoyo: true
+    }
+    const stagger  = -0.0015
+    const polygons = document.querySelectorAll("#bull polygon")
     const timeline = new TimelineMax(tmax_opts2)
-    const duration = .5
+    const duration = .2
     timeline.staggerFromTo(
       polygons,
       duration,
@@ -85,17 +91,8 @@ export default React.createClass({
 
   render() {
     return (
-      <div className={css.bull}>
-        <svg
-          className="bull"
-          viewBox="0 0 774 704"
-          onClick={() => {this.handleClick()}}
-        >
-          {bullData.map(polygon => {
-            const {id, fill, points} = polygon
-            return <polygon ref={`polygon${id}`} key={id} fill={fill} points={points} />
-          })}
-        </svg>
+      <div className={css.bull} onClick={() => this.handleClick()}>
+       <InlineSVG src={require('./assets/bull.svg')} />
       </div>
     )
   },
